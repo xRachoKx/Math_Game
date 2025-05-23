@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#80000000"> <!-- Полупрозрачный черный фон для затемнения -->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@android:color/black">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Перерождение"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/rebirth_points_gain_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Вы получите: 0 ОП"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/loss_info_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Вы потеряете: очки, цифры, знаки, клетки"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/confirm_rebirth_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ПОДТВЕРДИТЬ"
+            android:backgroundTint="@android:color/holo_green_light"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+</LinearLayout>

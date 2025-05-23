@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/black">
+
+    <TextView
+        android:id="@+id/points_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:layout_gravity="center"/>
+
+    <HorizontalScrollView
+        android:id="@+id/expression_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <LinearLayout
+            android:id="@+id/inner_expression_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/add_cell_button"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="[5]"
+                android:textColor="@android:color/black"
+                android:padding="10dp"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/points_per_second_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+0 очков в секунду"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:weightSum="4">
+
+        <Button
+            android:id="@+id/shop_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="🛒"
+            android:textSize="24sp"/>
+
+        <Button
+            android:id="@+id/upgrade_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="⏫"
+            android:textSize="24sp"/>
+
+        <Button
+            android:id="@+id/edit_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="✏"
+            android:textSize="24sp"/>
+
+        <Button
+            android:id="@+id/rebirth_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="🔄"
+            android:textSize="24sp"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
