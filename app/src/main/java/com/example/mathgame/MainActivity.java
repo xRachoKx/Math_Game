@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     private void checkOfflineProgress() {
         long lastExitTime = gameManager.getPlayerData().getLastExitTime();
         long currentTime = System.currentTimeMillis();
-        if (lastExitTime > 0 && (currentTime - lastExitTime) > 1000) { // Минимум 1 секунда
+        if (lastExitTime > 0 && (currentTime - lastExitTime) > 1000) {
             long offlineTimeSeconds = (currentTime - lastExitTime) / 1000;
             double offlinePoints = gameManager.calculateOfflinePoints(offlineTimeSeconds);
             OfflineProgressFragment fragment = OfflineProgressFragment.newInstance(lastExitTime, offlinePoints);
