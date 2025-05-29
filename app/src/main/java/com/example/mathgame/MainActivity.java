@@ -1,5 +1,6 @@
 package com.example.mathgame;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -12,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout expressionLayout;
     private Button addCellButton, shopButton, upgradeButton, editButton, rebirthButton;
     private GameManager gameManager;
+    private static final String PREFS_NAME = "MathGamePrefs";
+    private static final String FIRST_LAUNCH_KEY = "first_launch";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         editButton.setOnClickListener(v -> showEditFragment());
         rebirthButton.setOnClickListener(v -> showRebirthFragment());
 
+        checkFirstLaunch();
         checkOfflineProgress();
 
         new Thread(() -> {
@@ -69,6 +73,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         gameManager.getPlayerData().save(this);
+    }
+
+    private void checkFirstLaunch() {
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        boolean isFirstLaunch = prefs.getBoolean(FIRST_LAUNCH_KEY, true);
+        if (isFirstLaunch) {
+            HowToPlayFragment fragment = new HowToPlayFragment();
+            fragment.show(getSupportFragmentManager(), "HowToPlayFragment");
+
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean(FIRST_LAUNCH_KEY, false);
+            editor.apply();
+        }
     }
 
     private void checkOfflineProgress() {
